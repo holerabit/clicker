@@ -10,3 +10,5 @@ This is a classic clicker.
 - Reset click system.
 - Dark/Light theme.
 - CSS animation.
+## Link
+Live link: [ https://holerabit.github.io/clicker/ ]
