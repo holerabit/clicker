@@ -36,6 +36,19 @@ Verison 2.0.0:
 - Add System Saves Theme.
 - Add To-Do list in README.md
 
+
+Verison 2.0.1:
+##### Patch Fixed
+- Fix Adaptation.
+- Fix Theme Variation.
+
+
+Version 2.0.2:
+##### Final Patch Fix
+- Fix Button Adaptation (Dark / Light theme)
+- Add patch in Site
+- Add patch in README.md
+
 ## TO-DO:
 1. Top List.
 2. Commenets.
