@@ -1,79 +1,172 @@
 "use strict";
 
 // Contant Variables
-const numberClickHTML = document.getElementById("number");
-const buttonClick = document.getElementById("click-btn");
-const buttonReset = document.getElementById("reset-btn");
-const buttonLight = document.getElementById("light-btn");
-const buttonDark = document.getElementById("dark-btn");
-const AleredyThemeDark = document.getElementById("dark-varriation");
-const AleredyThemeLight = document.getElementById("light-varriation");
-const header = document.getElementById("head-theme");
-const h1 = document.getElementById("headline"); 
+const NumberClickHTML = document.getElementById("NumberInput");
+const ButtonClick = document.getElementById("ClickBtn");
+const ButtonReset = document.getElementById("ResetBtn");
+const ButtonLight = document.getElementById("LightBtn");
+const ButtonDark = document.getElementById("DarkBtn");
+const UpgradeBtn = document.getElementById("UpgradeBtnFirst");
+const AleredyThemeDark = document.getElementById("DarkVarriation");
+const AleredyThemeLight = document.getElementById("LightVarriation");
+const headerJS = document.getElementById("HeadTheme");
+const h1JS = document.getElementById("HeadLine"); 
+
 
 // Changeable Variables
-let numberClickJS = 0;
+let NumberClickJS = 0;
+let Upgrade20 = false;
 let DarkTheme = false;
-let LightTheme = true;
+let SetTheme = localStorage.getItem("theme") === "true";
+let Upgrade20Set = localStorage.getItem("FirstUpgrade") === "true";
+let CLicksSet = localStorage.getItem("Clicks");
+let End;
+
+Upgrade20 = Upgrade20Set;
+
+NumberClickJS = CLicksSet;
+NumberClickHTML.textContent = NumberClickJS;
+
+//Checking
+if (SetTheme === true){
+  AleredyThemeLight.textContent = "";
+  AleredyThemeDark.textContent = "*";
+
+  document.body.style.backgroundColor = "#101010";    
+  headerJS.style.backgroundColor = "#222222";
+  h1JS.style.color = "#f1f1f1";
+} else {
+  AleredyThemeLight.textContent = "*";
+  AleredyThemeDark.textContent = "";
+
+  document.body.style.backgroundColor = "#ffffff";
+  headerJS.style.backgroundColor = "#000000";
+  h1JS.style.color = "#ffffff";
+};
+
+if (Upgrade20 === true){
+  UpgradeBtn.classList.add("Sell");
+}
 
 // Function click
-buttonClick.addEventListener('click', () => {
-  numberClickJS++;
+ButtonClick.addEventListener('click', () => {
+  if (Upgrade20 === true){
+    let NumberAbsolute = Number(NumberClickJS); 
+    NumberAbsolute += 2;
 
-  numberClickHTML.textContent = numberClickJS;
+    NumberClickJS = NumberAbsolute;
 
-  if (numberClickJS === 10) {
+    NumberClickHTML.textContent = NumberClickJS;
+
+    localStorage.setItem("Clicks", NumberClickJS);
+  } else {
+    NumberClickJS++;
+
+    NumberClickHTML.textContent = NumberClickJS;
+
+    localStorage.setItem("Clicks", NumberClickJS);
+  }
+  
+
+  if (NumberClickJS === 10) {
     alert("Very Good!");
+  };
+
+  if (NumberClickJS === 20) {
+    alert("You can buy an Upgrade");
+    console.info("::: You can buy an Upgrade :::");
+  }
+
+  if (NumberClickJS === 50) {
+    alert("You very Good!")
+  }
+
+  if (NumberClickJS === 100) {
+    alert("Congratulations on your hundredth");
+  }
+
+  if (NumberClickJS === 500) {
+    alert("OMG!");
   }
 });
 
 // Function reset
-buttonReset.addEventListener('click', () => {
-  if (numberClickJS === 0) {
-    console.error("Oh no! Number already equals 0.");
+ButtonReset.addEventListener('click', () => {
+  if (NumberClickJS === 0) {
+    console.error("ERROR :::Oh no! Number already equals 0.:::");
     alert("Number already equals 0.")
   } else {
-    numberClickJS = 0;
-    
-    numberClickHTML.textContent = numberClickJS;
+    NumberClickJS = 0;
+    Upgrade20 = false;
+    UpgradeBtn.classList.remove("Sell");
+
+    NumberClickHTML.textContent = NumberClickJS;
+
+    localStorage.setItem("Clicks", NumberClickJS);
+    localStorage.setItem("FirstUpgrade", Upgrade20);
 
     alert("Reset Complete!");
-    console.log("Reset.");
+    console.info("::: Reset. :::");
   }
 });
 
 // Function Dark Teme
-buttonDark.addEventListener('click', () => {
+ButtonDark.addEventListener('click', () => {
   if (DarkTheme === true) {
     alert("The topic is aleredy Dark");
-    console.error("Oh no! Theme aleredy Dark");
+    console.error("ERROR :::Oh no! Theme aleredy Dark :::");
   } else {
     DarkTheme = true;
-    LightTheme = false;
 
     AleredyThemeLight.textContent = "";
     AleredyThemeDark.textContent = "*";
 
     document.body.style.backgroundColor = "#101010";
-    header.style.backgroundColor = "#222222";
-    h1.style.color = "#f1f1f1";
+    headerJS.style.backgroundColor = "#222222";
+    h1JS.style.color = "#f1f1f1";
+
+    localStorage.setItem("theme", true)
   }
 });
 
 // Function Light Theme
-buttonLight.addEventListener('click', () => {
-  if (LightTheme === true) {
+ButtonLight.addEventListener('click', () => {
+  if (DarkTheme === false) {
     alert("The topic is aleredy Light");
     console.error("Oh no! Theme aleredy Light");
   } else {
     DarkTheme = false;
-    LightTheme = true;
 
     AleredyThemeLight.textContent = "*";
     AleredyThemeDark.textContent = "";
 
     document.body.style.backgroundColor = "#ffffff";
-    header.style.backgroundColor = "#000000";
-    h1.style.color = "#ffffff";
+    headerJS.style.backgroundColor = "#000000";
+    h1JS.style.color = "#ffffff";
+
+    localStorage.setItem("theme", false);
+  }
+});
+
+UpgradeBtn.addEventListener('click', () => {
+  if(NumberClickJS >= 20){
+    Upgrade20 = true;
+    NumberClickJS -= 20;
+
+    NumberClickHTML.textContent = NumberClickJS;
+
+    UpgradeBtn.classList.add("Sell");
+
+    alert("You Buy Upgrade!");
+    console.info("Upgrade Add");
+
+    localStorage.setItem("Clicks", NumberClickJS);
+    localStorage.setItem("FirstUpgrade", Upgrade20);
+  } else if (Upgrade20 === true) {
+    alert("You already have an upgrade.")
+    console.error("ERROR ::: You already have an upgrade! :::")
+  } else {
+    alert("Not enough clicks.");
+    console.error("ERROR ::: Not enough clicks! :::")
   }
 });

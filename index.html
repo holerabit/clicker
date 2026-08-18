@@ -6,33 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
     <meta name="author" content="media-holerabit-git">
-    <title>Clicker! V 1.0.0</title>
+    <title>Clicker! V 2.0.0</title>
     <link href="style/style.css" rel="stylesheet">
     <link href="image/favicon.ico" rel="icon">
   </head>
 
   <body>
-    <header id="head-theme">
-      <h1 id="headline">Cliker!</h1>
+    <header id="HeadTheme">
+      <h1 id="HeadLine">Cliker!</h1>
     </header>
 
-    <div class="dark-light">
-      <button type="button" id="light-btn" class="light-button">  
-        Ligth <code id="light-varriation">*</code>
+    <div class="DarkLight">
+      <button type="button" id="LightBtn" class="LightBtnStyle">  
+        Ligth <code id="LightVarriation">*</code>
       </button>
 
-      <button type="button" id="dark-btn" class="dark-button">
-        Dark <code id="dark-varriation"></code>
+      <button type="button" id="DarkBtn" class="DarkBtnStyle">
+        Dark <code id="DarkVarriation"></code>
       </button>
     </div>
 
     <main> 
-      <p id="number">0</p>
-      <div class="buttons-div"> 
-        <button type="button" id="click-btn">Click.</button>
-        <button type="button" id="reset-btn">Reset.</button>
+      <p id="NumberInput" class="NumberInputStyle">0</p>
+      <div class="ButtonsDivStyle"> 
+        <button type="button" id="ClickBtn" class="ButtonClickStyle">Click.</button>
+        <button type="button" id="ResetBtn" class="ButtonClickStyle">Reset.</button>
       </div>
-    </main> 
+    </main>
+
+    <footer>
+      <div class="UpgradeDivStyle">
+        <h2>Upgrades</h2>
+         <p>20 clicks | +1 click</p>
+         <button type="button" id="UpgradeBtnFirst" class="UpgradeBtn20Style">Buy.</button>
+      </div>
+    </footer>
   </body>
   <script src="script/main.js"></script>
 </html>
