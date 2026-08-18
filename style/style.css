@@ -1,5 +1,6 @@
 :root {
   --light-color: hsl(000 100% 100%);
+  --border-color: hsl(010 70% 30%);
 }
 
 @keyframes slide {
@@ -53,7 +54,7 @@ main {
   hsl(050 50% 57%)
   );
 
-  border: 12px solid hsl(010 70% 30%);
+  border: 12px solid var(--border-color);
   border-radius: 12px;
 
   box-shadow: 12px 12px 10px black;
@@ -79,7 +80,7 @@ footer {
   hsl(000 0% 45%)
   );
 
-  border: 10px solid hsl(010 70% 30%);
+  border: 10px solid var(--border-color);
   border-radius: 12px;
 
   box-shadow: 12px 12px 10px black; 
@@ -202,32 +203,36 @@ code {
 
 @media (max-width: 786px) {
   main {
-    width: 40%;
+    width: 70%;
+
+    border: 4px solid var(--border-color);
   }
 
   .LightBtnStyle {
-    width: 10%;
+    width: 22%;
 
-    height: 55px;
+    height: 65px;
   }
 
   .DarkBtnStyle {
-    width: 10%;
+    width: 22%;
 
-    height: 55px;
+    height: 65px;
   }
 
   footer {
-    width: 50%;
+    width: 70%;
+
+    border: 4px solid var(--border-color);
   }
 
   .UpgradeDivStyle p {
-    width: 50%;
+    width: 65%;
   }
 
   .UpgradeBtn20Style {
-    width: 30%;
+    width: 40%;
 
-    height: 50px;
+    height: 45px;
   }
 }

@@ -35,6 +35,8 @@ if (SetTheme === true){
   document.body.style.backgroundColor = "#101010";    
   headerJS.style.backgroundColor = "#222222";
   h1JS.style.color = "#f1f1f1";
+
+  DarkTheme = true;
 } else {
   AleredyThemeLight.textContent = "*";
   AleredyThemeDark.textContent = "";
@@ -42,6 +44,8 @@ if (SetTheme === true){
   document.body.style.backgroundColor = "#ffffff";
   headerJS.style.backgroundColor = "#000000";
   h1JS.style.color = "#ffffff";
+
+  DarkTheme = false;
 };
 
 if (Upgrade20 === true){
