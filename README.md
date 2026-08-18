@@ -19,10 +19,14 @@ Live link: [Here](https://holerabit.github.io/clicker/)
 ## Update List
 Version 1.0.0:
 - First Version.
+
+
 Versiom 1.0.1:
 ##### Redact README.md
 - Redact link.
 - Add Update.
+
+
 Verison 2.0.0:
 ##### Big Upgraed
 - Add Adaptation.
